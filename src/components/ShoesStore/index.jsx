@@ -3,8 +3,25 @@ import Footer from './Footer';
 import Header from './Header';
 import Modal from './Modal';
 import ProductList from './ProductList';
-
+import data from '../../data/dataShoes.json';
 class ShoesStore extends Component {
+	state = {
+		shoesDetail: {
+			id: 0,
+			name: 'no-name',
+			alias: 'no-alias',
+			price: 0,
+			description: 'no-description',
+			shortDescription: 'no-short-description',
+			quantity: 0,
+			image: './img/default-thumbnail.jpg',
+		},
+	};
+	viewShoesDetail = shoesClick => {
+		this.setState({
+			shoesDetail: shoesClick,
+		});
+	};
 	render() {
 		return (
 			<>
@@ -15,10 +32,13 @@ class ShoesStore extends Component {
 							<div className='pro-title-primary text-center'>
 								<h1>- Shoes Shop -</h1>
 							</div>
-							<ProductList />
+							<ProductList
+								shoesList={data}
+								viewShoesDetail={this.viewShoesDetail}
+							/>
 						</div>
 					</section>
-					<Modal />
+					<Modal shoes={this.state.shoesDetail} />
 					<Footer />
 				</div>
 			</>

@@ -18,19 +18,6 @@ class Header extends Component {
 							<a href='#shop' className='header-register'>
 								Shop
 							</a>
-							<div className='d-flex justify-content-center align-items-center'>
-								<img
-									src='./img/image 8.png'
-									alt=''
-									className='mr-1 img-fluid'
-								/>
-								<span
-									className='text-white amount-product'
-									style={{ fontSize: 28 }}
-								>
-									(0)
-								</span>
-							</div>
 						</div>
 					</div>
 				</section>

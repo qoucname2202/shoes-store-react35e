@@ -3,6 +3,7 @@ import Fancybox from '../../../hook/Fancybox';
 
 class Modal extends Component {
 	render() {
+		let { name, price, shortDescription, quantity, image } = this.props.shoes;
 		return (
 			<Fancybox options={{ infinite: false }}>
 				<div
@@ -16,7 +17,7 @@ class Modal extends Component {
 					<div className='modal-dialog' role='document'>
 						<div className='modal-content'>
 							<div className='modal-header'>
-								<h5 className='modal-title'>Nike Air One</h5>
+								<h5 className='modal-title'>{name}</h5>
 								<button
 									type='button'
 									className='close'
@@ -32,35 +33,33 @@ class Modal extends Component {
 										<thead>
 											<tr>
 												<th>Name:</th>
-												<th>Nike Air One</th>
+												<th>{name}</th>
 											</tr>
 											<tr>
 												<th>Price:</th>
-												<th>100$</th>
-												{/* .toLocaleString('en-US', {
-                          style: 'currency',
-                          currency: 'USD',
-                        }) */}
-											</tr>
-											<tr>
-												<th>Dscription:</th>
 												<th>
-													The adidas Primeknit upper wraps the foot with a
-													supportive fit that enhances movement
+													{price.toLocaleString('en-US', {
+														style: 'currency',
+														currency: 'USD',
+													})}
 												</th>
 											</tr>
 											<tr>
+												<th>Description:</th>
+												<th>{shortDescription}</th>
+											</tr>
+											<tr>
 												<th>Quantity:</th>
-												<th>950</th>
+												<th>{quantity}</th>
 											</tr>
 											<tr>
 												<th className='table-image'>Image:</th>
 												<th>
 													<img
 														data-fancybox='responsive'
-														data-src='http://svcy3.myclass.vn/images/adidas-prophere.png'
-														src='http://svcy3.myclass.vn/images/adidas-prophere.png'
-														data-caption='Nike Air One'
+														data-src={image}
+														src={image}
+														data-caption={name}
 														alt=''
 														style={{
 															width: 100,
